@@ -2,7 +2,7 @@
 
 # Jay Doke
 
-<img src="https://lh3.googleusercontent.com/a/ACg8ocII4S5661Ksyf8ugVbwMoSQ6nQlbn9RF9BWP_k8ArnY1_SJ7XJq=s360-c-no" width="120" />
+<img src="https://raw.githubusercontent.com/jayjoke12/jayjoke12/refs/heads/main/bfcb305949e67e91f49af2eff0561507.gif" width="256" />
 
 </div>
 
