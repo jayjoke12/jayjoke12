@@ -1,0 +1,506 @@
+:root {
+  --tea-green: #a9d8e8;   /* sky blue */
+  --beige: #ffe066;       /* Woodstock yellow */
+  --cornsilk: #ffffff;    /* page background */
+  --papaya: #f6f5f2;      /* card / surface background, off-white */
+  --bronze: #d7263d;      /* collar red, primary accent */
+
+  --ink: #1a1a1a;
+  --ink-soft: #55524d;
+
+  --bg: var(--cornsilk);
+  --surface: var(--papaya);
+  --accent: var(--bronze);
+  --divider: var(--tea-green);
+  --woodstock: var(--beige);
+
+  --font-display: "Sniglet", sans-serif;
+  --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+
+  --radius: 1.25rem;
+  --max-width: 64rem;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  padding-top: 4rem;
+}
+
+
+.nav--scrolled {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  box-shadow: 0 1px 0 rgba(26, 26, 26, 0.08);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .nav--scrolled {
+    background: var(--cornsilk);
+  }
+}
+
+a {
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===========================================================
+   NAV
+   =========================================================== */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem;
+  background: transparent;
+  transition: background 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.nav__logo-slot {
+  width: 9.5rem;
+  height: 1.6rem;
+}
+
+.nav__links {
+  display: flex;
+  gap: 1.75rem;
+}
+
+.nav__links a {
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--ink-soft);
+  transition: color 0.2s ease;
+}
+
+.nav__links a:hover {
+  color: var(--accent);
+}
+
+/* ===========================================================
+   HERO
+   =========================================================== */
+.hero {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 5rem 1.5rem 4rem;
+}
+
+.hero__eyebrow {
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin: 0 0 0.25rem;
+}
+
+.hero__title {
+  position: relative;
+  margin: 0 0 1.25rem;
+  line-height: 1.15;
+}
+
+.hero__title-bold {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.75rem, 7vw, 5rem);
+  color: var(--ink);
+  transform-origin: left top;
+  will-change: transform;
+}
+
+.hero__title-bold--spacer {
+  visibility: hidden;
+  will-change: auto;
+}
+
+#hero-name {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.hero__title-regular {
+  display: block;
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  color: var(--ink-soft);
+  margin-top: 0.25rem;
+}
+
+.hero__desc {
+  max-width: 32rem;
+  color: var(--ink-soft);
+  margin: 0 0 2rem;
+}
+
+/* ===========================================================
+   BUTTONS
+   =========================================================== */
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--cornsilk);
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.85rem 1.75rem;
+  border-radius: 2rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.btn:hover {
+  box-shadow: 0 6px 16px rgba(212, 163, 115, 0.4);
+}
+
+.btn--big {
+  font-size: 1.1rem;
+  padding: 1rem 2rem;
+}
+
+/* ===========================================================
+   SECTION TITLES
+   =========================================================== */
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  margin: 0 0 2rem;
+  color: var(--ink);
+}
+
+/* ===========================================================
+   WORK / GRID
+   =========================================================== */
+.work {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 3rem 1.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: var(--surface);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card__thumb {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 0.85rem;
+  margin-bottom: 1rem;
+}
+
+.card__thumb--a { background: var(--tea-green); }
+.card__thumb--b { background: var(--beige); }
+.card__thumb--c { background: var(--bronze); }
+.card__thumb--d { background: var(--cornsilk); border: 1px solid var(--tea-green); }
+
+.card__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.15rem;
+  margin: 0 0 0.4rem;
+}
+
+.card__desc {
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  margin: 0 0 0.85rem;
+}
+
+.card__link {
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--accent);
+  font-size: 0.92rem;
+}
+
+/* ===========================================================
+   ABOUT
+   =========================================================== */
+.about {
+  background: var(--surface);
+  padding: 4rem 1.5rem;
+}
+
+.about__inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.about__text {
+  max-width: 36rem;
+  color: var(--ink-soft);
+}
+
+/* ===========================================================
+   CONTACT
+   =========================================================== */
+.contact {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 5rem 1.5rem 4rem;
+  text-align: center;
+}
+
+.contact__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  margin: 0 0 0.5rem;
+}
+
+.contact__desc {
+  color: var(--ink-soft);
+  margin: 0 0 1.5rem;
+}
+
+.contact__socials {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.contact__socials a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--ink-soft);
+  transition: color 0.2s ease;
+}
+
+.contact__socials a:hover {
+  color: var(--accent);
+}
+
+/* ===========================================================
+   PRELOADER
+   =========================================================== */
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--cornsilk);
+}
+
+.preloader__mark {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.75rem, 5vw, 3rem);
+  color: var(--ink);
+  display: flex;
+}
+
+.preloader__letter {
+  display: inline-block;
+  opacity: 0;
+}
+
+body.is-loading {
+  overflow: hidden;
+}
+
+/* ===========================================================
+   CUSTOM CURSOR
+   =========================================================== */
+@media (hover: hover) and (pointer: fine) {
+  html, body, * {
+    cursor: none !important;
+  }
+}
+
+/* ===========================================================
+   LIQUID CURSOR
+   =========================================================== */
+.cursor-liquid {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  filter: url(#goo-filter);
+  mix-blend-mode: difference;
+  isolation: isolate;
+}
+
+.cursor-blob {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  background: #ffffff;
+  will-change: transform;
+}
+
+.cursor-blob--lead {
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+}
+
+.cursor-blob--trail {
+  width: 26px;
+  height: 26px;
+  margin: -13px 0 0 -13px;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .cursor-liquid { display: none; }
+}
+
+/* ===========================================================
+   PAW PRINT TRAIL
+   =========================================================== */
+.paw-print {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 16px;
+  height: 16px;
+  pointer-events: none;
+  z-index: 998;
+  color: var(--accent);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+/* ===========================================================
+   DOG MASCOT
+   =========================================================== */
+.mascot {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  width: clamp(3.5rem, 8vw, 5.5rem);
+  z-index: 40;
+  will-change: transform;
+}
+
+.mascot img {
+  width: 100%;
+  height: auto;
+  display: block;
+  filter: drop-shadow(0 6px 10px rgba(26, 26, 26, 0.18));
+}
+
+@media (max-width: 32rem) {
+  .mascot {
+    right: 0.75rem;
+    bottom: 0.75rem;
+  }
+}
+
+.mascot--bird {
+  width: clamp(2.1rem, 4.5vw, 3rem);
+  right: clamp(4.2rem, 11vw, 6.5rem);
+  bottom: clamp(4.5rem, 11vw, 6.5rem);
+  z-index: 41;
+}
+
+@media (max-width: 32rem) {
+  .mascot--bird {
+    right: 3.4rem;
+    bottom: 3.4rem;
+  }
+}
+
+/* ===========================================================
+   BACKGROUND
+   =========================================================== */
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ===========================================================
+   TEXT SPLIT / REVEAL
+   =========================================================== */
+.split-line {
+  overflow: hidden;
+  display: block;
+}
+
+.split-char,
+.split-word {
+  display: inline-block;
+  will-change: transform, opacity;
+}
+
+/* ===========================================================
+   SECTION TITLE REVEAL
+   =========================================================== */
+.section-title {
+  position: relative;
+}
+
+/* ===========================================================
+   CARD TILT
+   =========================================================== */
+.card {
+  transform-style: preserve-3d;
+  perspective: 800px;
+}
+
+.card__thumb {
+  transform: translateZ(20px);
+}
+
+/* ===========================================================
+   RESPONSIVE
+   =========================================================== */
+@media (max-width: 32rem) {
+  .nav {
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: flex-start;
+  }
+  .nav__links {
+    gap: 1.25rem;
+  }
+}
+
+/* keyboard focus */
+a:focus-visible,
+.btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 0.4rem;
+}

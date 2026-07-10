@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sniglet:wght@400;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="is-loading">
+
+<div class="preloader" aria-hidden="true">
+  <div class="preloader__mark" id="preloader-mark"></div>
+</div>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="goo-filter">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="9" result="blur"/>
+      <feColorMatrix in="blur" mode="matrix"
+        values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 28 -12" result="goo"/>
+      <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+    </filter>
+  </defs>
+</svg>
+<div class="cursor-liquid" aria-hidden="true">
+  <div class="cursor-blob cursor-blob--trail"></div>
+  <div class="cursor-blob cursor-blob--lead"></div>
+</div>
+
+<header class="nav">
+  <div class="nav__logo-slot" aria-hidden="true"></div>
+  <nav class="nav__links">
+    <a href="#work">Work</a>
+    <a href="#about">About</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <section id="home" class="hero">
+    <p class="hero__eyebrow js-fade">hi, I'm</p>
+    <h1 class="hero__title">
+      <span id="hero-name-spacer" class="hero__title-bold hero__title-bold--spacer" aria-hidden="true">Your Name</span>
+      <span id="hero-name" class="hero__title-bold">jay doke</span>
+      <span class="hero__title-regular js-fade">computer science student.</span>
+    </h1>
+    <p class="hero__desc js-fade">Building software, web applications, and Minecraft mods through my mini personal projects.</p>
+    <a href="#work" class="btn js-fade">See the work</a>
+  </section>
+  <section id="work" class="work">
+    <h2 class="section-title">Things I've made</h2>
+
+    <div class="grid">
+      <article class="card">
+        <h3 class="card__title">Cursed blocks</h3>
+        <p class="card__desc">A Spigot plugin for Minecraft 1.21.4. Every two minutes, one block type gets cursed. Touch it and you die.</p>
+        <a href="https://github.com/jayjoke12/Cursed-Blocks/tree/main" class="card__link">View project →</a>
+      </article>
+
+      <article class="card">
+        <h3 class="card__title">Inventory Share</h3>
+        <p class="card__desc">Inventory Share is a chaotic multiplayer plugin where everyone on the server shares a single inventory.</p>
+        <a href="https://github.com/jayjoke12/InvShare/tree/main" class="card__link">View project →</a>
+      </article>
+
+      <article class="card">
+        <h3 class="card__title">ASCII 3D</h3>
+        <p class="card__desc">A 3D rendering pipeline written in Java, with terminal ASCII output. Which is super trash and laggy.</p>
+        <a href="https://github.com/jayjoke12/ascii3d" class="card__link">View project →</a>
+      </article>
+
+    </div>
+  </section>
+  <section id="about" class="about">
+    <div class="about__inner">
+      <h2 class="section-title">A bit about me</h2>
+      <p class="about__text">
+  I'm a developer who enjoys figuring out how things work and building projects that solve problems. Most of what I work on revolves around Java, Minecraft, and experimenting with ideas that push games a little further than they were originally designed to.
+  <br><br>
+
+  I started programming through Minecraft and have been building projects ever since. What began with behavior packs eventually grew into Java mods, rendering experiments, APIs, accessibility tools, and full-stack web projects. I enjoy working across different areas because every project teaches me something new.
+  <br><br>
+
+  One area I'm especially interested in is accessibility. I've been experimenting with computer vision to let players control Minecraft using hand movements instead of a traditional controller or mouse. 
+</p>
+    </div>
+  </section>
+  <footer id="contact" class="contact">
+    <h2 class="contact__title">Say hello</h2>
+    <p class="contact__desc">The best way to reach me is by email.</p>
+    <a href="mailto:jaydoke360@icloud.com" class="btn btn--big">jaydoke360@icloud.com</a>
+    <div class="contact__socials">
+      <a href="https://github.com/jayjoke12">GitHub</a>
+      <a href="https://discord.com/users/1375505838092976161">Discord</a>
+      <a href="https://www.tiktok.com/@jayd.069">TikTok</a>
+      <a href="https://www.instagram.com/jayd.069/">Instagram</a>
+    </div>
+  </footer>
+
+</main>
+<div class="mascot" id="mascot" aria-hidden="true">
+  <img src="snoopy-love.svg" alt="" width="383" height="456.5">
+</div>
+<div class="mascot mascot--bird" id="mascot-bird" aria-hidden="true">
+  <img src="woodstock.svg" alt="" width="864" height="864">
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/SplitText.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
